@@ -1,0 +1,257 @@
+{
+	"info": {
+		"_postman_id": "b87b850c-dda8-49cc-82b9-6dd6cd5349fa",
+		"name": "New Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32134394"
+	},
+	"item": [
+		{
+			"name": "Authenticate",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"ClientId\": \"ApiIntegrationNew\",\r\n    \"UserName\": \"Hackathon\",\r\n    \"Password\": \"Hackathon@1234\",\r\n    \"EndUserIp\": \"192.168.11.120\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://api.tektravels.com/SharedServices/SharedData.svc/rest/Authenticate",
+					"protocol": "http",
+					"host": [
+						"api",
+						"tektravels",
+						"com"
+					],
+					"path": [
+						"SharedServices",
+						"SharedData.svc",
+						"rest",
+						"Authenticate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"CityId\": \"115936\",\r\n    \"CountryCode\": \"AE\",\r\n    \"FromDate\": \"2025-01-28T00:00:00\",\r\n    \"ToDate\": \"2025-01-28T00:00:00\",\r\n    \"AdultCount\": 2,\r\n    \"ChildCount\": 1,\r\n    \"ChildAge\": [\r\n        \"2\"\r\n    ],\r\n    \"PreferredLanguage\": 0,\r\n    \"PreferredCurrency\": \"INR\",\r\n    \"IsBaseCurrencyRequired\": false,\r\n    \"BookingMode\": 5,\r\n    \"EndUserIp\": \"192.168.5.56\",\r\n    \"TokenId\": \"82ad5410-2409-458e-8588-4e1ea01b2b2e\",\r\n    \"KeyWord\": \"\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://SightseeingBE.tektravels.com/SightseeingService.svc/rest/Search",
+					"protocol": "https",
+					"host": [
+						"SightseeingBE",
+						"tektravels",
+						"com"
+					],
+					"path": [
+						"SightseeingService.svc",
+						"rest",
+						"Search"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetAvailability",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"ResultIndex\": 52,\r\n    \"EndUserIp\": \"192.168.5.56\",\r\n    \"TraceId\": \"79a0c3d9-e85b-4af8-8ac8-e3559ba90978\",\r\n    \"TokenId\": \"397a7182-516f-4e19-9cd8-5b913a728a8d\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://SightseeingBE.tektravels.com/SightseeingService.svc/rest/GetAvailability",
+					"protocol": "https",
+					"host": [
+						"SightseeingBE",
+						"tektravels",
+						"com"
+					],
+					"path": [
+						"SightseeingService.svc",
+						"rest",
+						"GetAvailability"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Block",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"AgeBands\": [\r\n        {\r\n            \"AgeBandIndex\": 1,\r\n            \"BandDescription\": null,\r\n            \"BandQuantity\": 2,\r\n            \"IsAgeRequired\": false,\r\n            \"Age\": [\r\n                69,\r\n                50\r\n            ],\r\n            \"MaximumCount\": 0,\r\n            \"MinimumCount\": 0\r\n        },\r\n        {\r\n            \"AgeBandIndex\": 2,\r\n            \"BandDescription\": null,\r\n            \"BandQuantity\": 1,\r\n            \"IsAgeRequired\": false,\r\n            \"Age\": [\r\n                1\r\n            ],\r\n            \"MaximumCount\": 0,\r\n            \"MinimumCount\": 0\r\n        }\r\n    ],\r\n    \"TourIndex\": 1,\r\n    \"ResultIndex\": 52,\r\n    \"EndUserIp\": \"192.168.5.56\",\r\n    \"TraceId\": \"79a0c3d9-e85b-4af8-8ac8-e3559ba90978\",\r\n    \"TokenId\": \"397a7182-516f-4e19-9cd8-5b913a728a8d\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://SightseeingBE.tektravels.com/SightseeingService.svc/rest/Block",
+					"protocol": "https",
+					"host": [
+						"SightseeingBE",
+						"tektravels",
+						"com"
+					],
+					"path": [
+						"SightseeingService.svc",
+						"rest",
+						"Block"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Book",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"SightseeingCode\": \"E-E10-A9SUNO0024\",\r\n    \"TourLanguages\": \"\",\r\n    \"Passenger\": [\r\n        {\r\n            \"Title\": \"Miss.\",\r\n            \"FirstName\": \"Richa\",\r\n            \"LastName\": \"Mishra\",\r\n            \"PaxType\": 0,\r\n            \"Age\": 69,\r\n            \"LeadPassenger\": true,\r\n            \"Phoneno\": \"9876543210\",\r\n            \"PassportNo\": \"\",\r\n            \"Email\": \"test@gmail.com\",\r\n            \"AgeBandIndex\": 1,\r\n            \"PAN\": \"CGMPM8765N\",\r\n            \"PaxId\": 0,\r\n            \"DateOfBirth\": \"\"\r\n        },\r\n        {\r\n            \"Title\": \"Mr.\",\r\n            \"FirstName\": \"Sushil\",\r\n            \"LastName\": \"Mishra\",\r\n            \"PaxType\": 0,\r\n            \"Age\": 50,\r\n            \"LeadPassenger\": false,\r\n            \"Phoneno\": \"9876543210\",\r\n            \"PassportNo\": \"\",\r\n            \"Email\": \"test@gmail.com\",\r\n            \"AgeBandIndex\": 1,\r\n            \"PAN\": \"CGMPM8765N\",\r\n            \"PaxId\": 1,\r\n            \"DateOfBirth\": \"\"\r\n        },\r\n        {\r\n            \"Title\": \"Ms.\",\r\n            \"FirstName\": \"Ruchi\",\r\n            \"LastName\": \"Mishra\",\r\n            \"PaxType\": 0,\r\n            \"Age\": 1,\r\n            \"LeadPassenger\": false,\r\n            \"Phoneno\": \"9876543210\",\r\n            \"PassportNo\": \"\",\r\n            \"Email\": \"test@gmail.com\",\r\n            \"AgeBandIndex\": 2,\r\n            \"PAN\": \"CGMPM8765N\",\r\n            \"PaxId\": 0,\r\n            \"DateOfBirth\": \"\"\r\n        }\r\n    ],\r\n    \"GuestNationality\": \"IN\",\r\n    \"IsVoucherBooking\": true,\r\n    \"IsBaseCurrencyRequired\": false,\r\n    \"IsCorporate\": false,\r\n    \"TourIndex\": 1,\r\n    \"ResultIndex\": 52,\r\n    \"EndUserIp\": \"192.168.5.56\",\r\n    \"TraceId\": \"79a0c3d9-e85b-4af8-8ac8-e3559ba90978\",\r\n    \"TokenId\": \"397a7182-516f-4e19-9cd8-5b913a728a8d\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://SightseeingBE.tektravels.com/SightseeingService.svc/rest/Book",
+					"protocol": "https",
+					"host": [
+						"SightseeingBE",
+						"tektravels",
+						"com"
+					],
+					"path": [
+						"SightseeingService.svc",
+						"rest",
+						"Book"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GenerateVoucher",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"BookingId\": \"458855\",\r\n    \"EndUserIp\": \"123.0.0.0\",\r\n    \"TokenId\": \"4ed42ec9-119a-46e0-b50e-c1349d270db5\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://sightseeingbe.tektravels.com/internalSightseeingService.svc/rest/GenerateVoucher",
+					"protocol": "http",
+					"host": [
+						"sightseeingbe",
+						"tektravels",
+						"com"
+					],
+					"path": [
+						"internalSightseeingService.svc",
+						"rest",
+						"GenerateVoucher"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ChangeRequest",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": " {\r\n  \"EndUserIp\": \"192.168.5.56\",\r\n    \"TraceId\": \"c86807ce-3ae7-4be2-b764-8ffecb6e0251\",\r\n    \"TokenId\": \"6043f19c-940a-4b4e-89e1-08ecab3c7aee\",\r\n  \"BookingId\": \"1655300\",\r\n  \"RequestType\": \"6\",\r\n  \"Remarks\": \"Booking Created for testing purpose\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://api.tektravels.com/BookingEngineService_SightSeeingBook/SightseeingService.svc/rest/Changerequest",
+					"protocol": "http",
+					"host": [
+						"api",
+						"tektravels",
+						"com"
+					],
+					"path": [
+						"BookingEngineService_SightSeeingBook",
+						"SightseeingService.svc",
+						"rest",
+						"Changerequest"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
