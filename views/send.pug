@@ -1,0 +1,24 @@
+doctype html
+html
+  head
+    title= title
+    link(rel="stylesheet" href="/style.css")
+    link(rel="icon" type="image/png" href="/favicon.png")
+    style.
+      @import url('https://fonts.googleapis.com/css2?family=Belanosima:wght@400;600;700&family=Jersey+15&display=swap');
+    body
+      h1 Search Your Favourite 
+      form(role='search' method='get')
+        .container
+          .input-container
+            input.search-input(type='search' value='' name='city' placeholder='City')
+          .input-container
+            input.search-input(type='search' value='' name='state' placeholder='State')
+        .container
+          textarea.search-input(name='message' placeholder='Description' rows='10' cols='50')
+        .button 
+          button.search-submit(type='submit' name='submit') Search
+            
+      span
+        | Demo By
+        span.team  The Espadas
