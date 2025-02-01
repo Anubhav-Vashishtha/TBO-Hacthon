@@ -8,12 +8,20 @@
   },
   "author": "",
   "license": "ISC",
-  "description": "",
   "dependencies": {
     "axios": "^1.7.9",
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
     "nodemon": "^3.1.9",
     "pug": "^3.0.3"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Anubhav-Vashishtha/TBO-Hacthon.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Anubhav-Vashishtha/TBO-Hacthon/issues"
+  },
+  "homepage": "https://github.com/Anubhav-Vashishtha/TBO-Hacthon#readme",
+  "description": ""
 }

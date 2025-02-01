@@ -2,11 +2,11 @@
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
-    font-family: "Belanosima", serif;
+    font-family: "Ysabeau Office", serif;
+
 }
 
 html, body {
-    font-family: "Belanosima", serif;
     background: hsl(0, 0%, 100%);
     /* display: grid;
     place-items: center; */
@@ -31,6 +31,8 @@ html, body {
   
   a {
     color: #0089f9;
+    text-decoration: none;
+    color: black;
   }
   
   a:hover {
@@ -112,4 +114,67 @@ html, body {
   .search-submit i {
     font-size: 24px;
   }
-  
+
+  ul{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* From Uiverse.io by SouravBandyopadhyay */ 
+.card-title {
+  color: #262626;
+  font-size: 1.5em;
+  line-height: normal;
+  font-weight: 700;
+  margin-bottom: 0.5em;
+}
+
+.card {
+  display: block;
+  position: relative;
+  width: 21vw;
+  height: 220px;
+  border-radius: 10px;
+  padding: 2em 1.2em;
+  margin: 12px 10px ;
+  text-decoration: none;
+  z-index: 0;
+  overflow: hidden;
+  background: linear-gradient(to bottom, #bee9f6, #529fde);
+}
+
+.card:before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  top: -16px;
+  right: -16px;
+  background: linear-gradient(135deg, #364a60, #384c6c);
+  height: 32px;
+  width: 32px;
+  border-radius: 32px;
+  transform: scale(1);
+  transform-origin: 50% 50%;
+  transition: transform 0.35s ease-out;
+}
+
+.card:hover:before {
+  transform: scale(28);
+}
+
+.small-desc{
+  font-size: small;
+}
+
+.card:hover .small-desc {
+  transition: all 0.5s ease-out;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.card:hover .card-title {
+  transition: all 0.5s ease-out;
+  color: #ffffff;
+}

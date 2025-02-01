@@ -49,7 +49,7 @@ def load_hotel_data(file_path="data/hotels.json"):
     """
     Load complete hotel data from JSON.
     """
-    with open(file_path, "r") as f:
+    with open(file_path, "r", encoding="utf-8") as f:
         data = json.load(f)
     return {hotel["HotelCode"]: hotel for hotel in data.get("detail", [])}  # Store by Hotel ID
 
@@ -57,7 +57,7 @@ def load_hotel_embeddings(file_path="data/hotel_embeddings.json"):
     """
     Load precomputed embeddings for hotels.
     """
-    with open(file_path, "r") as f:
+    with open(file_path, "r", encoding="utf-8") as f:
         hotels = json.load(f)
     for hotel in hotels:
         hotel["embedding"] = np.array(hotel["embedding"])  # Convert to NumPy array
@@ -92,7 +92,7 @@ def search_hotels():
             return jsonify({"error": "Request must contain 'query' in the JSON body."}), 400
 
         query = data["query"].strip()
-        top_k = int(data.get("top_k", 5))
+        top_k = int(data.get("top_k", 6))
 
         if not query:
             return jsonify({"error": "Query must be a non-empty string."}), 400
