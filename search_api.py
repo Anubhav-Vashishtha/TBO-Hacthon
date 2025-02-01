@@ -115,6 +115,8 @@ def search_hotels():
                 "CountryName": full_hotel_info.get("CountryName", "N/A"),
                 "HotelFacilities": full_hotel_info.get("HotelFacilities", []),
                 "Description": full_hotel_info.get("Description", "N/A"),
+                "rating": full_hotel_info.get("HotelRating", "N/A"),
+                "Map": full_hotel_info.get("Map", "N/A"),
                 "Similarity": sim
             })
 

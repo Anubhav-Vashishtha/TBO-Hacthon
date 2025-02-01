@@ -30,6 +30,7 @@ app.post("/hotel", async (req, res) => {
       top_k: top_k || 6,
     });
 
+    console.log(response.data[0])
     res.render("results", {
       title: "Hotel Search Results",
       hotels: response.data,
@@ -45,8 +46,6 @@ app.get("/hotel/:Id", async (req, res) => {
     Hotelcodes: req.params.Id,
     Language: "EN",
   });
-
-  console.log(responsedata.HotelDetails[0])
 
   res.render("hotel", {
     title: "Hotel Search Results",

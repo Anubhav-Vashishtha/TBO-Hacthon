@@ -11,9 +11,7 @@ html
       form(role='search' method='POST' action='/hotel')
         .container
           .input-container
-            input.search-input(type='search' value='' name='city' placeholder='City')
-          .input-container
-            input.search-input(type='search' value='' name='state' placeholder='State')
+            input.search-input(type='number' value='' name='top_k' placeholder='How many Hotels you want to review?')
         .container
           textarea.search-input(name='query' placeholder='Description' rows='10' cols='50')
         .button 

@@ -5,18 +5,73 @@ html
     link(rel="stylesheet" href="/style.css")
     link(rel="icon" type="image/png" href="/favicon.png")
     style.
-      @import url('https://fonts.googleapis.com/css2?family=Ysabeau+Office:ital,wght@0,1..1000;1,1..1000&display=swap');
+      @import url('https://fonts.googleapis.com/css2?family=Ysabeau+Office:wght@400;700&display=swap');
+      .modal { display: none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(0,0,0,0.7); justify-content: center; align-items: center; }
+      .modal-content { background: white; padding: 20px; border-radius: 10px; width: 80%; height: 80%; position: relative; }
+      .close-btn { position: absolute; top: 10px; right: 20px; cursor: pointer; font-size: 24px; z-index: 100; }
+      .map-preview, .rating{ 
+        display: inline-block; 
+        padding: 8px 15px; 
+        background-color:#0089f9; 
+        color: white; 
+        font-size: 14px; 
+        margin:3px 3px;
+        margin-top:10px;
+        border-radius: 5px; 
+        cursor: pointer; 
+        text-align: center; 
+        text-decoration: none; 
+      }
+      .map-preview:hover { background-color: #0056b3; }
+      .map-preview:active { background-color: #004080; }
+      .modal-map-container { height: 100%; width: 100%; }
+
+    link(rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css")
+    script(src="https://unpkg.com/leaflet/dist/leaflet.js")
+
   body
-    h1 Hotel Search Results
     if hotels.length
       ul
         each hotel in hotels
-          a(href=`/hotel/${hotel.HotelID}`).card
+          - const [lat, lon] = hotel.Map.split('|')
+          .card
             p.card-title #{hotel.HotelName}
             p.small-desc #{hotel.Address}
+            p.rating #{hotel.rating} Star 
+            p.rating #{hotel.CountryName}  
+            p(id=`map-preview-${hotel.HotelID}`).map-preview(onclick=`openModal(${lat}, ${lon})`) Locate
 
     else
       p No matching hotels found.
 
-    a(href="/") 
-      button.search-submit(type='submit' name='submit') Back to Search
+    a(href="/").back-button 
+      button.back(type='submit' name='submit') Back to Search
+
+    // Modal Window for Large Map
+    div.modal(id="map-modal")
+      div.modal-content
+        span.close-btn(onclick="closeModal()") ✖
+        div(id="modal-map" class="modal-map-container")
+
+    script.
+      let modalMapInstance = null;
+
+      function openModal(lat, lon) {
+        document.getElementById("map-modal").style.display = "flex";
+
+        if (modalMapInstance !== null) {
+          modalMapInstance.remove();  // Destroy existing map instance
+        }
+
+        setTimeout(() => {
+          modalMapInstance = L.map("modal-map").setView([lat, lon], 14);
+          L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png").addTo(modalMapInstance);
+          L.marker([lat, lon]).addTo(modalMapInstance);
+        }, 300);
+      }
+
+      function closeModal() {
+        document.getElementById("map-modal").style.display = "none";
+        modalMapInstance.remove();  // Destroy map instance when closing modal
+        modalMapInstance = null;  // Reset the map instance
+      }
