@@ -44,8 +44,8 @@ This project was developed as part of the **TBO Hackathon**.
    ```
 3. Run the backend server:
    ```sh
-   python app.py  # Start Flask backend
-   node server.js  # Start Node.js backend
+   python search_api.py  # Start Flask backend
+   node app.js  # Start Node.js backend
    ```
 4. Use the API endpoint to query hotels using natural language descriptions.
 
