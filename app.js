@@ -25,7 +25,7 @@ app.post("/hotel", async (req, res) => {
   }
 
   try {
-    const response = await axios.post("http://localhost:5005/search", {
+    const response = await axios.post("http://127.0.0.1:5005/search", {
       query: query,
       top_k: top_k || 6,
     });
